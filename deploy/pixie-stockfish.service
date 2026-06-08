@@ -1,0 +1,27 @@
+[Unit]
+Description=Pixie Stockfish HTTP server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/claude/pixie-fen-auto
+Environment=HOST=127.0.0.1
+Environment=PORT=8777
+Environment=STOCKFISH_PATH=/usr/local/bin/stockfish
+Environment=ENGINE_THREADS=20
+Environment=ENGINE_THREADS_FAST=20
+Environment=ENGINE_THREADS_STRONG=20
+Environment=ENGINE_THREADS_MAX=20
+Environment=ENGINE_HASH_MB=1024
+Environment=ENGINE_POOL_SIZE=1
+Environment=MAX_ENGINE_QUEUE=1
+Environment=SYZYGY_PATH=/opt/syzygy/3-4-5:/opt/syzygy/6-man
+Environment=MAX_MOVETIME=5000
+Environment=MAX_MULTIPV=1
+Environment=REQUEST_TIMEOUT=9000
+ExecStart=/root/.nvm/versions/node/v24.9.0/bin/node server/stockfish-server.js
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

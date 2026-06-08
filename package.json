@@ -1,0 +1,11 @@
+{
+  "name": "pixie-fen-auto",
+  "version": "1.6.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server/stockfish-server.js",
+    "check": "node --check pixie-fen-auto.user.js && node --check pixie-fen-auto-autoplay.user.js && node --check server/stockfish-server.js",
+    "test": "node tests/auto-mode.test.mjs && node tests/fen-and-poll.test.mjs"
+  }
+}
